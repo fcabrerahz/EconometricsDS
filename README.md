@@ -53,7 +53,7 @@ Llegar a clase puntual (sólo se admite un retraso de 10 minutos en circunstanci
 
 (Calendario aproximado)
 
-[Tema 1. Introducción y Regularization](https://rpubs.com/fcabrerahz/metrics_CEF) 3 sesiones.
+[Tema 1. Introducción y Regularización](https://rpubs.com/fcabrerahz/metrics_ds_regularization) 3 sesiones.
 
 ${\color{red}\text{Entrega Reporte Final (12 de Diciembre)}}$
 
