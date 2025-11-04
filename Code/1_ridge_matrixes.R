@@ -1,5 +1,5 @@
 ## Near-singular X'X  → exploding OLS; then stabilize with ridge
-set.seed(1)
+set.seed(12345)
 
 n <- 200
 # Two almost-identical predictors (rho ~ 0.999)
@@ -22,9 +22,16 @@ Xty <- t(X) %*% y
 beta_ols <- solve(XtX, Xty)
 cat("beta_ols:\n"); print(drop(beta_ols))
 
+#betas explode due to severe multicolinearity.
+
+#--------------------------------------------------------------------------------
+  
 eigs <- eigen(XtX)$values
 cat("Eigenvalues of X'X:\n"); print(signif(eigs, 6))
 cat("Condition number kappa(X'X):\n"); print(kappa(XtX))
+#kappa() computes the condition number of a matrix.
+#measures how “ill-conditioned” or numerically unstable the matrix is when you try to invert it.
+# k(X'X) = largest eigenvalue/ smallest eigenvalue
 
 # Tiny perturbation of y -> check sensitivity of OLS
 y_pert <- y; y_pert[1] <- y_pert[1] + 1e-2
@@ -32,6 +39,8 @@ beta_ols_pert <- solve(XtX, t(X) %*% y_pert)
 
 cat("||beta_ols - beta_ols_pert||_2 (tiny change in y):\n")
 print(norm(beta_ols - beta_ols_pert, type = "2"))
+#entire beta vector moved by 0.11 — 11 times larger than the perturbation.
+#this also happens when p similar to n: little dependent information.
 
 # --- Ridge regularization by matrices ----------------------------------------
 # Choose lambda; do NOT penalize intercept (common practice)
