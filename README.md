@@ -9,12 +9,12 @@ Santa Fe, Ciudad de México.
 Dr. Francisco J. Cabrera Hernández  
 [francisco.cabrera\@cide.edu](mailto:francisco.cabrera@cide.edu)  
 Oficina: Planta Alta  
-Horas de Oficina: lunes 15:00 a 17:00 horas o con cita.  
+Horas de oficina: lunes de 15:00 a 17:00 horas o con cita.  
 
 **Laboratorio**: ND
 
-**Horario de Clase:** Lunes de 9:40 a 12:40 horas.  
-**Horario de Laboratorio:** Por definirse.  
+**Horario de Clase:** miércoles de 13:00 a 16:00 horas.  
+**Horario de Laboratorio:** NA. 
 
 
 **Objetivo General:**
@@ -41,8 +41,8 @@ El objetivo del curso es dotar al alumno de las herramientas teóricas y prácti
 **Evaluación:**
 La calificación final se basará en: 
 
-- Un reporte de investigación (en formato *short paper*) donde se apliquen técnicas aprendidas durante el curso (incluidos los dos módulos anteriores +una técnica de Machine Learning).
-  Vea, por ejemplo: Cerulli, G. (2021). Improving econometric prediction by machine learning. Applied Economics Letters, 28(16), 1419-1425.
+- Un reporte de investigación (en formato *short paper*) donde se apliquen técnicas aprendidas durante el curso (puede ser de los dos módulos anteriores +Machine Learning).
+  Vea, como ejemplo de formato y secciones: Cerulli, G. (2021). Improving econometric prediction by machine learning. Applied Economics Letters, 28(16), 1419-1425.
 
 **Reglamento:** 
 
@@ -52,13 +52,7 @@ Llegar a clase puntual (sólo se admite un retraso de 10 minutos en circunstanci
 
 (Calendario aproximado)
 
-Introducción
-
-[Tema 1. Expectativas Condicionales y Proyección lineal.](https://rpubs.com/fcabrerahz/metrics_CEF) 4 sesiones.
-
-[Tema 2. El Álgebra de Mínimos Cuadrados.](https://rpubs.com/fcabrerahz/metrics_LS) 2 sesiones.
-
-[Tema 3. Propiedades Finitas.](https://rpubs.com/fcabrerahz/metrics_FINITE) 3 sesiones.
+[Tema 1. Introducción y Regularization](https://rpubs.com/fcabrerahz/metrics_CEF) 3 sesiones.
 
 ${\color{red}\text{Entrega Reporte Final (12 de Diciembre)}}$
 
