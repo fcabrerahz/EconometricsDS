@@ -29,12 +29,13 @@ El objetivo del curso es dotar al alumno de las herramientas teóricas y prácti
 
 **Bibliografía:** 
 
-*No hay libro de texto obligatorio, pero la teoría que guía el curso se fundamenta en Hansen.
+*No hay libro de texto obligatorio, pero la teoría que guía el curso se fundamenta en:
 
 1.	Hansen, B. (2022). Econometrics. Princeton University Press.
 
-**Lecturas obligatorias:**
+**Lecturas recomendadas:**
 
+- Breiman, L. (2001). Statistical modeling: The two cultures (with comments and a rejoinder by the author). Statistical science, 16(3), 199-231.
 - Athey, S., & Imbens, G. W. (2019). Machine learning methods that economists should know about. Annual Review of Economics, 11(1), 685-725.
 - Charpentier, A., Flachaire, E., & Ly, A. (2018). Econometrics and machine learning. Économie et Statistique, 505(1), 147-169.
  
