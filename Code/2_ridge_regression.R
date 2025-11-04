@@ -26,6 +26,7 @@ ridge_fit <- function(X, y, lambda, P) {
   solve(t(X) %*% X + lambda * P, t(X) %*% y)
 }
 
+#for one lambda
 lambda <- 1e-2
 beta_ridge <- ridge_fit(X, y, lambda, P)
 yhat_ridge <- X %*% beta_ridge
@@ -33,8 +34,51 @@ rmse_ridge <- sqrt(mean((y - yhat_ridge)^2))
 cat("Ridge (lambda =", lambda, ") coefficients:\n"); print(drop(beta_ridge))
 cat("Ridge RMSE:", rmse_ridge, "\n\n")
 
-# --- Variance–covariance of ridge (homoskedastic) ---
-sigma2_hat <- mean((y - yhat_ridge)^2)  # simple estimate of σ^2
+# ---------------- K-fold CV to choose lambda  ----------------
+# Grid of lambdas (log-spaced)
+lambda_grid <- exp(seq(log(1e-6), log(10), length.out = 60))
+
+# K-fold CV function using loops only
+kfold_cv_lambda <- function(X, y, P, lambda_grid, K = 5, seed = 123) {
+  set.seed(seed)
+  n <- nrow(X)
+  folds <- sample(rep(1:K, length.out = n))
+  cv_rmse <- numeric(length(lambda_grid))
+  
+  for (i in seq_along(lambda_grid)) {
+    lam <- lambda_grid[i]
+    err_sum <- 0
+    for (k in 1:K) {
+      tr <- folds != k
+      va <- folds == k
+      beta_k <- ridge_fit(X[tr, , drop = FALSE], y[tr], lam, P)
+      yhat_k <- X[va, , drop = FALSE] %*% beta_k
+      err_sum <- err_sum + mean((y[va] - yhat_k)^2)
+    }
+    cv_rmse[i] <- sqrt(err_sum / K)  # RMSE averaged across folds
+  }
+  
+  best_idx <- which.min(cv_rmse)
+  list(lambda_star = lambda_grid[best_idx],
+       cv_rmse = cv_rmse,
+       lambda_grid = lambda_grid,
+       best_idx = best_idx)
+}
+
+# Run CV and refit with the best lambda
+cv_out <- kfold_cv_lambda(X, y, P = P, lambda_grid = lambda_grid, K = 5, seed = 123)
+lambda_star <- cv_out$lambda_star
+beta_ridge_cv <- ridge_fit(X, y, lambda_star, P)
+yhat_ridge_cv <- X %*% beta_ridge_cv
+rmse_ridge_cv <- sqrt(mean((y - yhat_ridge_cv)^2))
+
+cat("CV-selected lambda:", signif(lambda_star, 6), "\n")
+cat("Ridge (CV) coefficients:\n"); print(drop(beta_ridge_cv))
+cat("Ridge (CV) RMSE:", rmse_ridge_cv, "\n\n")
+
+
+# --- Variance–covariance of ridge (homoskedastic) simple for given lambda above ---
+sigma2_hat <- mean((y - yhat_ridge)^2)  # simple estimate of sigma^2
 
 Ainv <- solve(XtX + lambda * P)
 Var_beta <- sigma2_hat * Ainv %*% XtX %*% Ainv
@@ -79,6 +123,3 @@ cv_ridge$lambda.min     # Lambda with minimum CV error
 coef(cv_ridge, s = "lambda.min")
 
 ##Variance should be computed manually.
-
-
-
