@@ -42,8 +42,8 @@ El objetivo del curso es dotar al alumno de las herramientas teóricas y prácti
 **Evaluación:**
 La calificación final se basará en: 
 
-- Un reporte de investigación (en formato *short paper*) donde se apliquen técnicas aprendidas durante el curso (puede ser de los dos módulos anteriores +Machine Learning).
-  Vea, como ejemplo de formato y secciones: Cerulli, G. (2021). Improving econometric prediction by machine learning. Applied Economics Letters, 28(16), 1419-1425.
+- Un reporte de investigación (en formato *short paper*) donde se apliquen técnicas aprendidas durante el curso (puede ser de los dos módulos anteriores +Machine Learning). \\
+Vea, como ejemplo de formato y secciones: Cerulli, G. (2021). Improving econometric prediction by machine learning. Applied Economics Letters, 28(16), 1419-1425.
 
 **Reglamento:** 
 
