@@ -33,6 +33,10 @@ El objetivo del curso es dotar al alumno de las herramientas teóricas y prácti
 
 1.	Hansen, B. (2022). Econometrics. Princeton University Press.
 
+Para práctica y código puede consultar:
+
+2.	James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An introduction to statistical learning: with applications in R (Vol. 103). New York: Springer.
+
 **Lecturas recomendadas:**
 
 - Breiman, L. (2001). Statistical modeling: The two cultures (with comments and a rejoinder by the author). Statistical science, 16(3), 199-231.
