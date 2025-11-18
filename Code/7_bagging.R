@@ -75,6 +75,8 @@ print(importance(rf_bag)) #how much could the MSE increase if we delete x var.
 
 # Plot:
 varImpPlot(rf_bag, main = "Variable Importance (Bagging with mtry=p)")
+##IncNodePurity (importance in spliting) tends to favor variables with many possible split points, e.g., continuous or high-cardinality variables.
+## This is why many practitioners prefer %IncMSE, which is more reliable.
 
 # Quick predicted vs actual (RF) diagnostic
 plot(test$wage, pred_te_rf, pch = 19, col = rgb(0,0,1,0.4),
