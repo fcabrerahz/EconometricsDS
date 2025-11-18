@@ -19,7 +19,7 @@ tree_fit <- rpart(
 # Inspect CP table (training + cross-validated errors)
 printcp(tree_fit)
 
-# Choose the cp that minimizes cross-validated error (xerror)
+# Choose the cp ("C" in the slides) that minimizes cross-validated error (xerror)
 best_cp <- tree_fit$cptable[which.min(tree_fit$cptable[,"xerror"]), "CP"]
 
 # Prune to optimal size

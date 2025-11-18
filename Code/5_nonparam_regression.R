@@ -21,7 +21,8 @@ y <- as.numeric(dat$wage)
 n <- length(y)
 
 # Evaluation grid for smooths
-xgrid <- seq(min(x), max(x), length.out = 300)
+xgrid <- seq(min(x), max(x), length.out = 300) 
+## Note: grid of x-values at which you want to evaluate (and plot) the estimator
 
 # ----------------------------
 # A) Nadaraya–Watson (local constant)
@@ -90,4 +91,56 @@ cat("NW CV bandwidth (npregbw):            ", signif(bw_nw_cv$bw, 6), "\n")
 cat("Local Linear ROT bandwidth (dpill):   ", signif(h_rot_ll, 6), "\n")
 cat("Local Linear CV bandwidth (npregbw):  ", signif(bw_ll_cv$bw, 6), "\n")
 
+mean(dat$exper)
+
+
+# ---------------------------------------------------------
+# Local Linear (CV) with pointwise SE band on xgrid
+# ---------------------------------------------------------
+
+# Get plotting data
+ll_cv_plot <- npplot(
+  bws                = bw_ll_cv,
+  plot.behavior      = "data",        # return data instead of plotting
+  plot.errors.method = "asymptotic",  # asymptotic SEs
+  plot.errors.center = "estimate",
+  plot.errors.type   = "standard",
+  plot.errors.style  = "band",
+  perspective        = FALSE,
+  neval              = length(xgrid)  # match your grid length
+)
+
+# npplot returns a list; for univariate x there is a single object r1
+ll_obj <- ll_cv_plot$r1
+
+# Extract evaluation x, fitted values, and error bounds
+x_eval   <- ll_obj$eval[, 1]          # evaluation points for x
+m_eval   <- fitted(ll_obj)           # fitted m(x)
+se_mat   <- se(ll_obj)               # 2-column matrix: lower/upper *offsets*
+
+lower_ci <- m_eval + se_mat[, 1]
+upper_ci <- m_eval + se_mat[, 2]
+
+ll_cv_se <- data.frame(
+  x     = x_eval,
+  mhat  = m_eval,
+  lower = lower_ci,
+  upper = upper_ci
+)
+
+# Plot: data + Local Linear (CV) with 95% band
+ggplot(data.frame(x = x, y = y), aes(x, y)) +
+  geom_point(alpha = 0.35, size = 1.5) +
+  geom_ribbon(data = ll_cv_se,
+              aes(x = x, ymin = lower, ymax = upper),
+              inherit.aes = FALSE,
+              alpha = 0.2, fill = "steelblue") +
+  geom_line(data = ll_cv_se,
+            aes(x = x, y = mhat),
+            inherit.aes = FALSE,
+            color = "steelblue4", linewidth = 1.1) +
+  labs(title = "Local Linear Regression (CV bandwidth)",
+       subtitle = "Gaussian kernel with asymptotic 95% band",
+       x = "Experience (years)", y = "Wage") +
+  theme_minimal(base_size = 12)
 
