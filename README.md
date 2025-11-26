@@ -62,5 +62,7 @@ Llegar a clase puntual (sólo se admite un retraso de 10 minutos en circunstanci
 
 [Tema 2. Regresión no paramétrica y de Árboles](https://rpubs.com/fcabrerahz/metrics_ds_trees) 4 sesiones.
 
-${\color{red}\text{Entrega Reporte Final (12 de Diciembre)}}$
+[Tena 3. Stacking, selección y aplicaciones](https://rpubs.com/fcabrerahz/metrics_DS_averaging) 4 sesiones.
+
+${\color{red}\text{Entrega Reporte Final (12 de Diciembre)}}$ 
 
