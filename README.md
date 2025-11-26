@@ -42,6 +42,10 @@ Para práctica y código puede consultar:
 - Breiman, L. (2001). Statistical modeling: The two cultures (with comments and a rejoinder by the author). Statistical science, 16(3), 199-231.
 - Athey, S., & Imbens, G. W. (2019). Machine learning methods that economists should know about. Annual Review of Economics, 11(1), 685-725.
 - Charpentier, A., Flachaire, E., & Ly, A. (2018). Econometrics and machine learning. Économie et Statistique, 505(1), 147-169.
+- Cilliers, J., Elashmawy, N., & McKenzie, D. (2024). Using post-double selection Lasso in field experiments. World Bank.
+- Wang, Xintong, Health Shocks, Skills, and Labor Market Outcomes Before and After COVID-19 (August 18, 2025). Available at SSRN: https://ssrn.com/abstract=5396138 or http://dx.doi.org/10.2139/ssrn.5396138
+- Heiler, P., & Knaus, M. (2022). Effect or treatment heterogeneity? Policy evaluation with aggregated and disaggregated treatments. IZA DP No. 15580.
+
  
 **Evaluación:**
 La calificación final se basará en: 
